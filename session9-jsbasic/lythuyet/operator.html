@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- toán tử: Operator
+  1. toán tử số học
+  +, -, *, /, %, **(số mũ)
+  % chia lấy dư
+  khi số bị chia nhỏ hơn số chia kết quả lấy số bị chia
+  ** số mũ
+
+
+
+2. toán tử logic
+||(or): 1 trong các trường hợp thỏa mãn thì được 
+nó sẽ lấy trushy đầu tiên nếu không có lấy cuối cùng
+
+
+&&(and): tất cả các trường hợp thỏa mãn
+nó sẽ lấy falsy đầu tiên nếu không có lấy thằng cuối cùng
+
+
+-tất cả trường hợp phải thỏa mãn
+1-trusthy: không phải falsy
+2-falsy: false,0, NaN, undefined, null,"",''
+NOTE: trong phép toán có || và && thì sẽ ưu tiên && trước rồi mới đến ||
+
+3. toán tử so sánh
+==, ===, >, <, >=, <=, !=, !==
+==: so sánh giá trị
+===: so sánh giá trị và kiểu dữ liệu
+
+
+4. toán tử tăng giảm 
+++,--
+-->
+
+
+
+<script>
+  // let result= 3 % 16;//trang4
+  // console.log(result);
+  console.log(1||2&&3);
+  let a=5;
+  let b="5";
+  console.log(a==b);//true
+  console.log(a===b);//false tại vì a có kiểu dữ liệu là number,b có kiểu dữ liệu là string
+  console.log(a!=b);// so sánh khác giá trị : false
+  console.log(a!== b);// so sánh khác giá trị or kiểu dữ liệu: true
+  let count=1;
+  // count++; //hậu tố là sau cho nên tăng sau
+  // ++count; //tiền tố trước cho nên tăng trước
+  console.log(++count);
+
+</script>
+</body>
+</html>
