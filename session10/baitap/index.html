@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //bài 1
+     //để ép kiểu dữ liệu có thể đặt dấu +đằng trước hoặc Number(prompt()).
+    // let day= Number(prompt("mời bạn nhập ngày trong tuần"));
+    // if(day==2){
+    //   console.log("thứ 2");
+    // }else if(day==3){
+      let age= Number(prompt("xin mời nhập số tuổi!"));
+      if (age>=18) {
+        alert("bạn đã trên 18 tuổi!");
+      }else if(age<18){
+        alert("bạn chưa đủ 18 tuổi!");
+      }
+      //bài 2
+      let time= Number(prompt("xin hãy nhập số giờ trong ngày"));
+      if (time<18) {
+        alert("Good day");
+      }else if(time>18){
+        alert("Good evening");
+      }
+      // //bài 3
+      let hour= Number(prompt("xin hãy nhập số giờ trong ngày"));
+      if (hour<10) {
+        alert("Good morning");
+      }else if(hour <20){
+        alert("Good day");
+      }else {
+        alert("Good evening");
+      }
+      //bài 4
+
+      let number= Number(prompt("nhập 1 số bất kì"));
+      if (number % 2 == 0) {
+        document.write(`${number} là số chẵn`);
+      }else {
+        document.write(`${number} là số lẻ`);
+      }
+      // bài 5
+      let numBer = +prompt("Nhập 1 số bất kỳ");
+      switch (numBer % 2) {
+    case 0:
+        document.write(`${numBer} là số chẵn`);
+        break;
+    case 1:
+        document.write(`${numBer} là số lẻ`);
+        break;
+      }
+      // bài 6
+      let color = prompt("Nhập màu sắc");
+  if(color == "vàng" || color == "xanh" || color == "đỏ"){
+    document.write(`Hiển thị màu ${color}`);
+}
+  else{
+    document.write(`Màu ${color} ko hợp lệ !`);
+}
+// bài 7
+let x = +prompt("Nhập 1 số nguyên x bất kỳ");
+if (x == 0) {
+    document.write(`x = ${x}`);
+} else if(x > 0){
+    document.write(`x = ${x} là số nguyên dương`);
+}else {
+    document.write(`x=${x} là số nguyên âm`);
+}
+    //bài 8
+    let height = +prompt("Nhập chiều cao (m)");
+    weight = +prompt("Nhập cân nặng (kg)");
+    BMI = (weight / (height ** 2) ).toFixed(1);
+
+document.write(`Chỉ số BMI là ${BMI} -------- Chẩn đoán: `);    
+if (BMI < 18.5) {
+    document.write("Người gầy");
+} 
+else if (18.5 <= BMI && BMI <= 24.9){
+    document.write("Người bình thường");
+} 
+else if (25 < BMI && BMI <= 29.9){
+    document.write("Tiền béo phì");
+}
+else if (30 <= BMI && BMI <= 34.9){
+    document.write("Béo phì độ I");
+}
+else if (35.0 <= BMI && BMI <= 39.9){
+    document.write("Béo phì độ II");
+}
+else if (BMI >= 40){
+    document.write("Béo phì độ III");
+}
+else {
+    document.write("Tạng người thừa cân");
+}
+//bài 9
+let math = +prompt("Nhập điểm môn Toán");
+    physics = +prompt("Nhập điểm môn Lý");
+    chemistry = +prompt("Nhập điểm môn Hóa");
+    literature = +prompt("Nhập điểm môn Văn");
+    history = +prompt("Nhập điểm môn Sử");
+    geography = +prompt("Nhập điểm môn Địa");
+    average = ((math + physics + chemistry + literature + history + geography)/6).toFixed(1);
+
+document.write(`Điểm trung bình tổng kết lại bằng: ${average} -------- Kết luận: `);
+if (8.0 <= average ) {
+    document.write("Học sinh Giỏi");
+} 
+else if(6.5 <= average && average <= 7.9){
+    document.write("Học sinh Khá");
+}
+else if(5.0 <= average && average <= 6.4){
+    document.write("Học sinh Trung Bình");
+}
+else{
+    document.write("Học sinh Yếu");
+}
+// bài 10
+
+  </script>
+</body>
+</html>

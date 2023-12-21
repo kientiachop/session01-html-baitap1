@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    DECISION: câu đầu kiện
+    if-
+    -đối với cái if (condition) THỎA MÃN thì phần thân if được thực thi/
+    THẾ NÀO LÀ THỎA MÃN? là truthy thì chạy
+    -if-else
+    -1 trong 2 cái bắt buộc phải chạy 1 cái
+    -if-else-if-else
+        -switch-case
+   -->
+   <script>
+    // let a=4;
+    // if(a>3){
+    //   //template literal
+    //   /* có thể truyền biến  vào trong string 
+      
+    //   */
+    //   console.log(`${a} lớn hơn 5`);
+
+    // }else {
+    //   console.log("chạy vào else");
+    // }
+    //để ép kiểu dữ liệu có thể đặt dấu +đằng trước hoặc Number(prompt()).
+    // let day= Number(prompt("mời bạn nhập ngày trong tuần"));
+    // if(day==2){
+    //   console.log("thứ 2");
+    // }else if(day==3){
+    //   console.log("thứ 3");
+    // }else if(day==4){
+    //   console.log("thứ 4");
+    // }
+    //key là giá trị truyền vào
+    //break thoát khỏi case
+    // switch (day) {
+    //   ///các case ở đây sẽ đi kiểm tra value có bằng key hay không
+    //   case 2,4,6 :
+    //     //các case kiểm tra === kiểm tra nghiêm ngặt
+    //     console.log("ngày đi học");
+    //     break;
+    //       default:
+    //         console.log("ngày được nghỉ!");
+    // }
+      let day = +prompt("mời bạn nhập ngày bất kì");
+      switch (day) {
+        case 2:
+          case 4:
+            case 6:
+              console.log("ngày đi học");
+              break;
+
+        default:
+          console.log("ngày không đi học");
+          break;
+      }
+
+    
+   </script>
+</body>
+</html>
