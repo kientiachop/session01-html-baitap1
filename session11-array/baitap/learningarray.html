@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     // const groceries = ['banana', 'apple', 'orange', 'pear']; //index 0 1 2 3
+    // // console.log(groceries);
+
+    // // grab the 3rd index
+    // // console.log(groceries[3]);
+
+    // groceries.push('cookie')
+    // groceries.push('blueberry')
+    // console.log(groceries)
+
+    // array slice
+    // start from INCLUSIVE and UP to 2 [0,1]
+    // console.log(groceries.slice(3,6))
+    // console.log(groceries.slice(1,4))
+    //array methods (slice, push, indexOf, length)
+    // console.log(groceries.indexOf('pear'))
+    // console.log(groceries.length)
+
+
+    // OBJECTS {}
+    // key: value pairs
+    // const person = {
+    //   name: 'Leonardo',
+    //   shirt: 'white'
+    // }
+    // // console.log(person.name)
+    // // console.log(person.shirt)
+
+    // //acces object: dot notation vs. bracket notation
+
+    // //bracket notation
+    // console.log(person['name'])
+    // console.log(person['shirt'])
+
+    // //assign object
+    // person.phone = '1-222-333-4444'
+    // console.log(person.phone)
+
+    // console.log(person)
+    // //person 2
+    // const person2 = {
+    //   name: 'Qazi',
+    //   shirt: 'black'
+    // }
+    // console.log(person2)
+    // console.log(person2.name)
+    // console.log(person2.shirt)
+
+    //es6 arrrow function (2 arguments)
+    ///object
+    //template literals
+    // methods Math.floor()
+    const introducer = (name, shirt) => {
+      const person = {
+        name: name,
+        shirt: shirt,
+        assets: 100000,
+        liabilities: 50000,
+        netWorth: function () {
+          return this.assets - this.liabilities
+        }
+      }
+      const intro =
+        `Hi, my name is ${person.name} and the color of my shirt is ${person.shirt} and my net worth is $${person.netWorth()} USD`
+      return intro
+    }
+    console.log(introducer('Qazi', 'black'))
+    console.log(introducer('Leonardo', 'white'))
+
+    const howManyLetters = (phrase) => {
+    
+
+
+      // for of
+      let result = 0;
+      for (const index in phrase) {
+        console.log(Number(index) + 1)
+        result = Number(index) + 1
+      }
+      return {result}
+    }
+    const phrase = prompt('Write your phrase')
+    console.log(howManyLetters(phrase))
+  </script>
+</body>
+</html>

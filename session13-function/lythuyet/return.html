@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<!-- device-width -->, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    return: chỉ dùng trong hàm
+    hàm gặp return dừng chương trình và trả về kết quả
+   -->
+   <script>
+    function test(){
+      for (let i = 0; i < 4; i++) {
+        if(i == 1){
+          break;
+        }
+        else {
+          return;
+          //dừng hẳn chương trình
+        }
+        console.log("11111");
+      }
+    }
+    test();
+    //function sinh id
+    function uuid(params) {
+      return Math.floor(Math.random()*9999) 
+      
+    }
+    let student= {
+      name:"hoa",
+      id: uuid()
+    }
+   </script>
+</body>
+</html>
