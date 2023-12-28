@@ -77,25 +77,25 @@
         // document.write(total);
         // Bai Tap 5
         let input = prompt("Hãy nhập câu bất kì:");
-        function countCharacterFrequency(input) {
-            let charFrequency = {};
+        function chuoiKiTu(input) {
+            let chuoi = {};
 
             for (let i = 0; i < input.length; i++) {
                 let char = input[i];
                 console.log(input[i]);
 
-                if (charFrequency[char]) {
-                    charFrequency[char]++;
+                if (chuoi[char]) {
+                    chuoi[char]++;
                 } else {
-                    charFrequency[char] = 1;
+                    chuoi[char] = 1;
                 }
             }
 
-            for (let char in charFrequency) {
-                document.write(`Ký tự '${char}' xuất hiện ${charFrequency[char]} lần` + "<br>");
+            for (let char in chuoi) {
+                document.write(`Ký tự '${char}' xuất hiện ${chuoi[char]} lần` + "<br>");
             }
         }
-        countCharacterFrequency(input);
+        chuoiKiTu(input);
   </script>
 </body>
 </html>
