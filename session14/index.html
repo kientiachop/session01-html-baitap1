@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //bài 1
+    // let input = prompt("Nhập ngẫu nhiên 5 chữ số nguyên");
+    // let numbers = input.split(' ');
+    // let uniqueNumbers = [...new Set(numbers)];
+
+    // for (let i = 0; i < uniqueNumbers.length; i++) {
+    //     let count = 0;
+    //     for (let j = 0; j < numbers.length; j++) {
+    //         if (uniqueNumbers[i] === numbers[j]) {
+    //         count++;
+    //         }
+    //     }
+    //     if (count > 1) {
+    //         uniqueNumbers.splice(i, 1);
+    //         // Decrement i to correctly check the next element
+    //       }
+    //     }
+    //     let maxNumber = Math.max(...uniqueNumbers);
+    // console.log(maxNumber);
+//bài 4
+    let input = prompt("Nhập chuỗi chữ và số ngẫu nhiên");
+    let numbers = input.split(' ');
+    let uniqueNumbers = [...new Set(numbers)];
+
+    for (let i = 0; i < uniqueNumbers.length; i++) {
+        let count = 0;
+        for (let j = 0; j < numbers.length; j++) {
+            if (uniqueNumbers[i] === numbers[j]) {
+            count++;
+            }
+        }
+        if (count > 1) {
+            uniqueNumbers.splice(i, 1);
+            // Decrement i to correctly check the next element
+          }
+        }
+        let maxNumber = Math.max(...uniqueNumbers);
+    console.log(maxNumber);
+  </script>
+  
+</body>
+</html>
