@@ -27,24 +27,23 @@
     //     let maxNumber = Math.max(...uniqueNumbers);
     // console.log(maxNumber);
 //bài 4
-    let input = prompt("Nhập chuỗi chữ và số ngẫu nhiên");
-    let numbers = input.split(' ');
-    let uniqueNumbers = [...new Set(numbers)];
-
-    for (let i = 0; i < uniqueNumbers.length; i++) {
-        let count = 0;
-        for (let j = 0; j < numbers.length; j++) {
-            if (uniqueNumbers[i] === numbers[j]) {
-            count++;
-            }
-        }
-        if (count > 1) {
-            uniqueNumbers.splice(i, 1);
-            // Decrement i to correctly check the next element
-          }
-        }
-        let maxNumber = Math.max(...uniqueNumbers);
-    console.log(maxNumber);
+    // let array_1 = prompt("Nhập chuỗi chữ và số ngẫu nhiên");
+    // let array_2 = '';
+    // for (let i = 0; i < array_1.length; i++) {
+    //         if (isNaN(array_1[i])) { //kiểm tra có phần tử là số hay không
+    //         array_2 += array_1[i];  //nếu không phải số sẽ thêm vào mảng array
+    //         }
+    //     }
+       
+    // console.log(array_2);
+  // bài 5
+     function reverseString(str) {
+      let arrayofchars=str.split("");
+      let strtoarray = arrayofchars.reverse();
+      let newstring = strtoarray.join("")
+      return newstring;
+     }
+     console.log(reverseString("This is an example!"));
   </script>
   
 </body>
