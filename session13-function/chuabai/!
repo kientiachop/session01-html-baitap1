@@ -10,7 +10,7 @@
     <button onclick="addToCart()">mua</button>
 
     <script>
-        let store=[['pc',5000],['banhmi',2000],['ao',3000]];
+    let store=[['pc',5000],['banhmi',2000],['ao',3000]];
         let cart=[];
         function addToCart(){
             let inputValue=document.getElementById('input').value;
@@ -110,15 +110,6 @@
 //             }
             
 //         };
-        
-
-
-        
-
-    </script>
-
-</body>
-</html>
-    </script>
+</script>
 </body>
 </html>
