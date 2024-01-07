@@ -4,7 +4,7 @@
 }
 body {
   font: 71%/1.5 Verdana, Sans-Serif;
-  background: #eee;
+  background: #060927;
 }
 #container {
   margin: 100px auto;
@@ -16,11 +16,11 @@ body {
   width: 671px;
   height: 200px;
   font: 1em/ 1.5 Verdana, Sans-Serif;
-  background-color: #fff;
-  border: 1px solid #f9f9f9;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  background-color: #060927;
+  border: 1px solid #32168c;
+  color: white;
 }
+
 #keyboard {
   margin: 0;
   padding: 0;
@@ -34,36 +34,8 @@ body {
     text-align: center;
     background: #fff;
     border: 1px solid #f9f9f9;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    border-radius: 10px;
   }
-  .caplocks, .tab, .left-shift {
-    clear: left;
-  }
-#keyboard .tab, #keyboard .delete {
-  width: 70px; }
-  #keyboard .caplocks {
-    width: 80px;
-  }
-#keyboard .left-shift {
-  width: 95px;
-}
-#keyboard .right-shift {
-  width: 109px;
-}
-#keyboard .enter {
-  width: 77px;
-}
-.lastitem {
-  margin-right : 0;
-}
-.uppercase {
-  text-transform: uppercase;
-}
-#keyboard  .space {
-  clear: left;
-  width: 681px;
-}
 .on {
   display: none;
 }

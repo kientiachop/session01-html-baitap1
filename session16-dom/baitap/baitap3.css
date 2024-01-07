@@ -1,0 +1,81 @@
+/* bao gồm cả padding và border với chiều cao và chiêu rộng */
+* { 
+  box-sizing: border-box;
+}
+/* loại bỏ margin và padding khỏi list */
+ul {
+  margin: 0;
+  padding: 0;
+} 
+/* thiết kế list items */
+ul li {
+  position :relative;
+  padding: 12px 8px 12px 40px;
+  background: grey;
+  font-size: 20px;
+}
+/* set tất cả list item với màu khác nhau */
+ul li:nth-child() {
+  background: #f9f9f9;
+}
+/* khi click vào, chèn thêm màu background */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+/* add thêm checked mark khi bấm vào */
+ul li.checked:before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+/* style header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* style input */
+input {
+  margin: 0px;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+/* style add button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 0;
+  cursor: pointer;
+}
+.addBtn:hover {
+  background-color: #bbb;
+}
