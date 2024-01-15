@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Thông tin học viện</h1>
+  <div id="container">
+    <div>
+      Họ và tên
+      <span><input type="text" placeholder="vui lòng nhập tên" id="user" required></span>
+    </div>
+    <div>
+      Email
+      <span><input type="email" placeholder="vui lòng nhập email" id="email"></span>
+    </div>
+    <div>
+      Số điện thoại
+      <span><input type="tel" placeholder="vui lòng nhập số điện thoại" id="tel" required></span>
+    </div>
+    <div>
+      Quê quán
+      <span><input type="text" placeholder="vui lòng nhập địa chỉ quê quán" id="country" required></span>
+    </div>
+    <div>
+      Giới tính
+      <span><input type="radio" class="gender" id="male" value="Nam"> Nam  
+        <input type="radio" class="gender" id="female" value="Nữ"> Nữ
+      </span>
+    </div>
+  </div>
+  <button onclick="addInfo()">Lưu lại</button>
+  <div>
+  <input type="text" id="info">
+    <button onclick="search()">search</button>
+    <table border="1" cellpadding="5" cellspacing="5">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th> Họ tên </th>
+                <th> Email </th>
+                <th> Điện thoại </th>
+                <th> Địa chỉ </th>
+                <th> Gender </th>
+                <th> Hành động </th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            
+        </tbody>
+        
+    </table>
+  </div>
+  <script>
+    function addInfo() {
+    // Lấy giá trị từ các trường input
+            let username = document.getElementById('user').value;
+            let email = document.getElementById('email').value;
+            let tel = document.getElementById('tel').value;
+            let country = document.getElementById('country').value;
+            let gender = document.getElementsByClassName('gender').value;
+            // Kiểm tra xem email đã tồn tại trong local storage chưa
+            let registeredUsers = localStorage.getItem('registeredUsers');
+            if (!registeredUsers) {
+                registeredUsers = [];
+            } else {
+                registeredUsers = JSON.parse(registeredUsers);
+            }
+
+            // Kiểm tra xem email đã được sử dụng chưa
+            for (let user of registeredUsers) {
+                if (user.email === email) {
+                    alert("Email đã được sử dụng. Vui lòng sử dụng email khác.");
+                    return;
+                }
+            }
+
+            // Kiểm tra xem user đã tồn tại chưa
+            for (let user of registeredUsers) {
+                if (user.username === username) {
+                    alert("User đã được sử dụng. Vui lòng sử dụng User khác.");
+                    return;
+                }
+            }
+
+            // Tạo một đối tượng chứa thông tin đăng ký
+            let userObject = {
+                username: username,
+                tel: tel,
+                email: email,
+                country: country,
+                gender: gender
+            };
+
+            // Thêm người dùng mới vào mảng
+            registeredUsers.push(userObject);
+
+            // Lưu mảng vào local storage
+            localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+
+            // Hiển thị thông báo đăng ký thành công
+            alert("Đăng ký thành công!");
+            window.location.href="./login.html"
+        }
+        // tạo function sinh id ngẫu nhiên
+        function uuid() {
+            return Math.floor(Math.random()*9999999)+ new Date().getMilliseconds();
+        }
+       
+        // tạo 1 mảng lưu thông tin tất cả các đối tượng đăng kí
+        let info=[];
+        
+        // khởi tạo function thêm công việc
+        function search() {
+            console.log("đã chạy vào hàm add job!");
+            // lấy nội dung thông tin
+            let username = document.getElementById('user').value;
+            let email = document.getElementById('email').value;
+            let tel = document.getElementById('tel').value;
+            let country = document.getElementById('country').value;
+            let gender = document.querySelector('gender').value;
+            // khi khởi tạo đống tượng
+            let userObject = {
+                id: uuid(),
+                username: username,
+                tel: tel,
+                email: email,
+                country: country,
+                gender: gender,
+                status: false
+            };
+            jobs.push(userObject);
+            // sau khi có cái mảng chứa danh sách công việc rồi thì đem đi hiển thị
+            renderInfo();
+        }
+        // function hiển thị danh sách công việc
+         function renderInfo() {
+            let html="";
+            for (let i = 0; i < info.length; i++) {
+                html += `
+                
+                `
+         }
+         }
+  </script>
+</body>
+</html>

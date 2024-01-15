@@ -45,15 +45,16 @@
         function uuid() {
             return Math.floor(Math.random()*9999999)+ new Date().getMilliseconds();
         }
+       
+        /* 
+        Math.random(): tạo 1 số ngẫu nhiên từ 0<=X<1
+        * với 99999 sẽ tạo 1 số ngẫu nhiên
+        Math.floor làm tròn xuống vd19.4 sẽ lấy 19.
+        new Date().getMilliiseconds(): lấy thời tính bằng milis (1000ms=1s);
+        
+        */
         // tạo 1 mảng lưu thông tin tất cả các đối tượng  công việc
         let jobs=[];
-        /* 
-            Math.random(): tạo 1 số ngẫu nhiên từ 0<=X<1
-            * với 99999 sẽ tạo 1 số ngẫu nhiên
-            Math.floor làm tròn xuống vd19.4 sẽ lấy 19.
-            new Date().getMilliiseconds(): lấy thời tính bằng milis (1000ms=1s);
-
-         */
         // khởi tạo function thêm công việc
         function addJob() {
             console.log("đã chạy vào hàm add job!");
