@@ -26,124 +26,152 @@
     </div>
     <div>
       Giới tính
-      <span><input type="radio" class="gender" id="male" value="Nam"> Nam  
-        <input type="radio" class="gender" id="female" value="Nữ"> Nữ
+      <span><input type="radio"  id="gender" value="Nam"> Nam  
+        <input type="radio"  id="gender" value="Nữ"> Nữ
       </span>
     </div>
   </div>
   <button onclick="addInfo()">Lưu lại</button>
   <div>
-  <input type="text" id="info">
+  <label for="search">Tìm Kiếm:</label>
+  <input type="text" id="search" oninput="searchStudents()">
     <button onclick="search()">search</button>
-    <table border="1" cellpadding="5" cellspacing="5">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th> Họ tên </th>
-                <th> Email </th>
-                <th> Điện thoại </th>
-                <th> Địa chỉ </th>
-                <th> Gender </th>
-                <th> Hành động </th>
-            </tr>
-        </thead>
-        <tbody id="tbody">
-            
-        </tbody>
-        
+    <table id="studentTable">
     </table>
   </div>
   <script>
+    let students = [];
+    let selectedStudentIndex = -1;
+
+    //
+    document.getElementById('studentTable').addEventListener('click', function (event) {
+        
+        if (event.target && (event.target.id === 'ed' || event.target.id === 'de')) {
+            event.preventDefault(); 
+            selectedStudentIndex = event.target.closest('tr').rowIndex - 1; 
+            handleAction(event.target.id);
+        }
+    });
+    function handleAction(action) {
+        if (action === 'ed') {
+            editStudent();
+        } else if (action === 'de') {
+            deleteStudent();
+        }
+    }
+    
     function addInfo() {
     // Lấy giá trị từ các trường input
             let username = document.getElementById('user').value;
             let email = document.getElementById('email').value;
             let tel = document.getElementById('tel').value;
             let country = document.getElementById('country').value;
-            let gender = document.getElementsByClassName('gender').value;
-            // Kiểm tra xem email đã tồn tại trong local storage chưa
-            let registeredUsers = localStorage.getItem('registeredUsers');
-            if (!registeredUsers) {
-                registeredUsers = [];
-            } else {
-                registeredUsers = JSON.parse(registeredUsers);
-            }
-
-            // Kiểm tra xem email đã được sử dụng chưa
-            for (let user of registeredUsers) {
-                if (user.email === email) {
-                    alert("Email đã được sử dụng. Vui lòng sử dụng email khác.");
-                    return;
-                }
-            }
-
-            // Kiểm tra xem user đã tồn tại chưa
-            for (let user of registeredUsers) {
-                if (user.username === username) {
-                    alert("User đã được sử dụng. Vui lòng sử dụng User khác.");
-                    return;
-                }
-            }
-
-            // Tạo một đối tượng chứa thông tin đăng ký
-            let userObject = {
-                username: username,
-                tel: tel,
-                email: email,
-                country: country,
-                gender: gender
-            };
-
-            // Thêm người dùng mới vào mảng
-            registeredUsers.push(userObject);
-
-            // Lưu mảng vào local storage
-            localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
-
-            // Hiển thị thông báo đăng ký thành công
-            alert("Đăng ký thành công!");
-            window.location.href="./login.html"
+            let gender = document.getElementsById('gender').value;
+            
+  let student = {username, email, tel, country, gender};
+      if (selectedStudentIndex !== -1) {
+            // If in edit mode, update the existing student
+            students.splice(selectedStudentIndex, 0, student);
+            clearInputFields();
+        } else {
+            
+            students.push(student);
+            clearInputFields();
         }
-        // tạo function sinh id ngẫu nhiên
-        function uuid() {
-            return Math.floor(Math.random()*9999999)+ new Date().getMilliseconds();
-        }
-       
-        // tạo 1 mảng lưu thông tin tất cả các đối tượng đăng kí
-        let info=[];
+
+        // tạo lại lựa chọn
+        selectedStudentIndex = -1;
+
         
-        // khởi tạo function thêm công việc
-        function search() {
-            console.log("đã chạy vào hàm add job!");
-            // lấy nội dung thông tin
-            let username = document.getElementById('user').value;
-            let email = document.getElementById('email').value;
-            let tel = document.getElementById('tel').value;
-            let country = document.getElementById('country').value;
-            let gender = document.querySelector('gender').value;
-            // khi khởi tạo đống tượng
-            let userObject = {
-                id: uuid(),
-                username: username,
-                tel: tel,
-                email: email,
-                country: country,
-                gender: gender,
-                status: false
-            };
-            jobs.push(userObject);
-            // sau khi có cái mảng chứa danh sách công việc rồi thì đem đi hiển thị
-            renderInfo();
+        displayStudents();
+    }
+    function deleteStudent() {
+        if (selectedStudentIndex !== -1) {
+           
+            students.splice(selectedStudentIndex, 1);
+
+            
+            selectedStudentIndex = -1;
+
+           
+            displayStudents();
         }
-        // function hiển thị danh sách công việc
-         function renderInfo() {
-            let html="";
-            for (let i = 0; i < info.length; i++) {
-                html += `
-                
-                `
-         }
-         }
+    }
+    
+    function editStudent() {
+
+        if (selectedStudentIndex !== -1) {
+            
+            let editedStudent = students[selectedStudentIndex];
+
+            
+            document.getElementById('name').value = editedStudent.name;
+            document.getElementById('email').value = editedStudent.email;
+            document.getElementById('tel').value = editedStudent.phone;
+            document.getElementById('address').value = editedStudent.address;
+            document.getElementById('gender').value = editedStudent.gender;
+          // Change the "Lưu" button to "Cập nhật"
+            document.querySelector('button[type="button"][onclick="addInfo()"]').innerText = "Cập nhật";
+
+            // xóa
+            students.splice(selectedStudentIndex, 1);
+        }
+        
+    }
+     // kiểm tra nếu chọn eidt
+        let saveButton = document.querySelector('button[type="button"][onclick="addInfo()"]');
+        if (saveButton.innerText === "Cập nhật") {
+            // cập nhật lại thông tin
+            saveStudent();
+
+            // Reset form
+            clearInputFields();
+            saveButton.innerText = "Lưu";
+        } else {
+            // nếu không thì lưu lại
+            saveStudent();
+        }
+    }
+    function clearInputFields() {
+        // Clear input fields
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('tel').value = '';
+        document.getElementById('address').value = '';
+        document.getElementById('gender').value = '';
+    }
+     function searchStudents() {
+        
+        let searchTerm = document.getElementById('search').value.toLowerCase();
+
+        // lọc ra tên cần tìm
+        let filteredStudents = students.filter(student => student.name.toLowerCase().includes(searchTerm));
+
+        
+        displayStudents(filteredStudents);
+
+    }
+
+    
+    function displayStudents(filteredStudents) {
+        
+
+        
+        let table = document.getElementById('studentTable');
+        table.innerHTML = ''; // tạo bảng sạch
+
+        // tạo bảng
+        let headerRow = table.insertRow(0);
+        headerRow.innerHTML = '<th>#</th><th>Họ và Tên</th><th>Email</th><th>Số Điện Thoại</th><th>Quê Quán</th><th>Giới Tính</th><th>Hành Động</th>';
+  
+        // tạo dòng
+        for (let i = 0; i < (filteredStudents || students).length; i++) {
+            let student = (filteredStudents || students)[i];
+            let row = table.insertRow(i + 1);
+            row.innerHTML = `<td>${i+1}</td><td>${student.name}</td><td>${student.email}</td><td>${student.phone}</td><td>${student.address}</td><td>${student.gender}</td><td><a href="" id="ed">edit</a><p> </p><a href="" id="de">delete</a></td>`;
+        }
+        
+    }  
   </script>
 </body>
 </html>
