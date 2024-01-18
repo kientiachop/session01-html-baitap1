@@ -3,125 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rikkey Shop</title>
-  <link rel="stylesheet" href="./exam.css">
+  <title>Document</title>
+  <link rel="stylesheet" href="exam.css">
 </head>
 <body>
-  <!-- Header -->
-  <div class='header'>
-    <div>
-      RIKKEI_SHOP
-    </div>
-
-    <div>
-      <input type="text" id="searchInput">
-    </div>
-    <div>
-      <nav>
+  <!-- header -->
+  <header>
+    <nav>
+      <div class="img-nav">
+        <img src="" alt="">
+      </div>
+      <div class="content-nav">
         <ul>
-          <li><a href="">Giỏ hàng</a></li>
+          <li><a href="#">Trang Chủ</a></li>
+          <li><a href="#">Sản Phẩm</a></li>
+          <li><a href="#">Liên hệ</a></li>
+          <li><a href="#">Giới thiệu</a></li>
         </ul>
-      </nav>
-    </div>
-  </div>
-
-  <!-- BODY -->
-  <div class="body_item">
-    <div>
-      <div class="dropdown">
-        <label for="toggle" class="dropdown-label">Danh mục sản phẩm</label>
-        <ul class="dropdown-content">
-          <li>Tất cả sản phẩm</li>
-          <li>Thiết bị điện tử</li>
-          <li>Sách</li>
-          <li>Đồ tiêu dùng</li>
-          <li>Thời trang</li>
-        </ul>
+        <form>
+          <input type="text" name="search" placeholder="Tìm kiếm sản phẩm...">
+          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
+        </form>
       </div>
-    </div>
+      <!-- Model -->
+      <button id="cart">
+        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+      </button>
+      <div id="myModel" class="model">
+        <div class="model-content">
+          <div class="model-header">
+            <h5 class="model-title">Giỏ hàng</h5>
+            <span class="close">&times;</span>
+          </div>
+          <div class="model-body">
+            <div class="cart-row">
+              <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+              <span class="cart-price cart-header cart-column">Giá</span>
+              <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+            </div>
+            <div class="cart-items">
+              
 
-    <div>
-      <p>Iphone 11 Promax</p>
-      <label>20.000.000đ</label>
-      <i class="fa-solid fa-cart-shopping" onclick="addToCart('Iphone 11 promax', 20000000)"></i> <br>
-      <i class="fa-regular fa-heart"></i><label>46 Đã bán</label>
-      <p>Hà Nội</p>
+            </div>
+            <div class="cart-total">
+              <strong class="cart-total-title">Tổng cộng : </strong>
+              <span class="cart-total-price">0VNĐ</span>
+            </div>
+          </div>
+          <div class="model-footer">
+            <button type="button" class="btn btn-secondary close-footer">Đóng</button>
+                        <button type="button" class="btn btn-primary order">Thanh Toán</button>
+          </div>
+        </div>
       </div>
+    </nav>
+  </header>
 
+  <!-- content -->
+<section class="wrapper">
+    <div class="product">
+      <ul>
+        <li class="main-product">
+          <div class="img-product">
+            <img src="/img/hq720.jpg" alt="">
+          </div>
+          <div class="content-product">
+            <h3 class="content-product-h3">Bàn phím cơ Rainy75</h3>
+            <div class="content-product-details">
+              <div class="price">
+                <span class="money">2190000đ</span>
+              </div>
+              <button type="button" class="btn btn-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </li>
+        <li class="main-product">
+          <div class="img-product">
+            <img src="/img/tofu_65_keyboard_kit_1610768416_0fe3e25c.jpg" alt="">
+          </div>
+          <div class="content-product">
+            <h3 class="content-product-h3">Bàn phím cơ Tofu65</h3>
+            <div class="content-product-details">
+              <div class="price">
+                <span class="money">4650000đ</span>
+              </div>
+              <button type="button" class="btn btn-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </li>
+        <li class="main-product">
+          <div class="img-product">
+            <img src="/img/1682599950729.webp" alt="">
+          </div>
+          <div class="content-product">
+            <h3 class="content-product-h3">Bàn phím cơ V81 Plus</h3>
+            <div class="content-product-details">
+              <div class="price">
+                <span class="money">2290000đ</span>
+              </div>
+              <button type="button" class="btn btn-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </li>
+        <li class="main-product">
+          <div class="img-product">
+            <img src="/img/0-02-06-2252d83ab57a6131387c22098016cc6c5443f9c3d663f30141e3c26540d17d0f_cc5e26df571c90e2_600x_23fb9571-4fc3-4335-ba5e-c53692780bdb_1024x.webp" alt="">
+          </div>
+          <div class="content-product">
+            <h3 class="content-product-h3">Bàn phím cơ Monsgeek M1</h3>
+            <div class="content-product-details">
+              <div class="price">
+                <span class="money">1990000đ</span>
+              </div>
+              <button type="button" class="btn btn-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </li>
+        <li class="main-product">
+          <div class="img-product">
+            <img src="/img/keychron-v4-custom-mechanical-custom-keyboard-1661162984691.jpg" alt="">
+          </div>
+          <div class="content-product">
+            <h3 class="content-product-h3">Bàn phím cơ Keyboard V4</h3>
+            <div class="content-product-details">
+              <div class="price">
+                <span class="money">1490000đ</span>
+              </div>
+              <button type="button" class="btn btn-cart">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </li>
 
-      <div id="Dac_nhan_tam">
-        <img src="../img/DacNhanTam.jpg" alt="Dark nhân tâm">
-        <p> Đắc nhân tâm </p>
-        <label>100.000đ</label>
-        <i class="fa-solid fa-cart-shopping" onclick="addToCart('Sách Đắc Nhân Tâm', 100000)"></i> <br>
-        <i class="fa-regular fa-heart"></i><label>46 Đã bán</label>
-        <p>Hà Nội</p>
-      </div>
+      </ul>
 
-
-      <div id="Mi_hao_hao">
-        <img src="../img/haohao.jpg" alt="Nghèo">
-        <p> Mì Hảo Hảo </p>
-        <label>90.000đ</label>
-        <i class="fa-solid fa-cart-shopping" onclick="addToCart('Mì Hảo Hảo', 90000)"></i> <br>
-        <i class="fa-regular fa-heart"></i><label>46 Đã bán</label>
-        <p>Hà Nội</p>
     </div>
-
-    <div id="Bia">
-      <img src="../img/BiaHeineken.jpg" alt="Thứ 7 máu chảy về đâu ạ">
-      <p> Thùng bia Heineken </p>
-      <label>500.000đ</label>
-      <i class="fa-solid fa-cart-shopping" onclick="addToCart('Thùng bia Heineken', 500000)"></i> <br>
-      <i class="fa-regular fa-heart"></i><label>46 Đã bán</label>
-      <p>Hà Nội</p>
-  </div>
-
-  <div id="Nuoc_rua_chen">
-    <img src="../img/sunlight.jpg" alt="cảnh lấy vợ">
-    <p>Nước rửa chén sunlight</p>
-    <label>120.000đ</label>
-    <i class="fa-solid fa-cart-shopping" onclick="addToCart('Nước rửa chén sunlight', 120000)"></i> <br>
-    <i class="fa-regular fa-heart"></i><label>46 Đã bán</label>
-    <p>Hà Nội</p>
+</section>
+<!-- footer -->
+<div>
+  <h4>Chăm Sóc Khách Hàng</h4>
+  <p>Trung tâm hỗ trợ</p>
+  <p>Hướng dẫn mua hàng</p>
 </div>
 
-  <div class="line_1">
 
-
-  </div>
-<!-- FOOTER -->
-<div class="f_page">
-  <div>
-    <h4>Chăm sóc khách hàng</h4>
-    <p>Trung tâm hỗ trợ</p>
-    <p>Hướng dẫn mua hang</p>
-  </div>
-
-  <div>
-    <h4>Giới thiệu</h4>
-    <p>Điều khoản</p>
-    <p>Chính sách bảo mật</p>
-    <p>Tuyển dụng</p>
-  </div>
-
-  <div>
-    <h4>Danh mục sản phẩm</h4>
-    <p>Thời trang</p>
-    <p>Đồ tiêu dùng</p>
-    <p>Thiết bị điện tử</p>
-    <p>Sách</p>
-  </div>
-
-  <div>
-    <h4>Theo Dõi Chúng Tôi</h4>
-    <i class="fa-brands fa-facebook"></i><label>Facebook</label><br>
-    <i class="fa-brands fa-instagram"></i><label>Instagram</label><br>
-    <i class="fa-brands fa-twitter"></i><label>Twitter</label>
+<div>
+  <h4>Giới Thiệu</h4>
+  <p>Điều khoản</p>
+  <p>Chính sách bảo mật</p>
+  <p> tuyển dụng</p>
 </div>
-  
+<div>
+  <h4>Theo Dõi Chúng Tôi</h4>
+  <i class="fa-brands fa-facebook"></i><label>Facebook</label><br>
+  <i class="fa-brands fa-instagram"></i><label>Instagram</label><br>
+  <i class="fa-brands fa-twitter"></i><label>Twitter</label>
 </div>
-  </div>
 
+<script src="./exam.js"></script>
 </body>
 </html>
