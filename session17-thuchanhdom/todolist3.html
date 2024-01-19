@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekkei Academy</title>
+</head>
+<body>
+  <div id="container">
+    <h2>Thông tin học viên</h2>
+    <div id="form">
+      <form action="">
+        <label for="user">Họ và Tên </label>
+        <input type="text" id="user" placeholder="vui lòng nhập tên" required>
+        <label for="email">Email </label>
+        <input type="email" id="user" placeholder="vui lòng nhập email" required>
+        <label for="telephone">Số điện thoại </label>
+        <input type="tel" id="telephone" placeholder="vui lòng nhập số điện thoại" required>
+        <label for="country">Quê quán </label>
+        <input type="text" id="country" placeholder="vui lòng nhập địa chỉ quê quán" required>
+        <label for="gender">Giới tính </label>
+        <input type="radio" name="gender" id="gender" value="Nam" checked> Nam
+        <input type="radio" name="gender" id="gender" value="Nữ"> Nữ
+        <button id="save">Lưu lại </button>
+      </form>
+    </div>
+
+    <div>
+      <h2>Danh sách học viên</h2>
+      <label for="">Tìm kiếm tên học viên: </label>
+      <input type="text" id="searchStudent">
+      <button id="search">Tìm kiếm </button>
+
+      <table border="1">
+        <thead>
+          <th>#</th>
+          <th>Họ và Tên</th>
+          <th>Email</th>
+          <th>Điện thoại</th>
+          <th>Địa chỉ</th>
+          <th>Giới tính</th>
+          <th>Hành động</th>
+          <th><button>Sắp xếp </button></th>
+        </thead>
+
+        <tbody id="tableStudent">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
