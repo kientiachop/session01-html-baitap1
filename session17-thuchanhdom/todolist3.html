@@ -8,28 +8,31 @@
 <body>
   <div id="container">
     <h2>Thông tin học viên</h2>
-    <div id="form">
-      <form action="">
-        <label for="user">Họ và Tên </label>
-        <input type="text" id="user" placeholder="vui lòng nhập tên" required>
+        <label for="fullName">Họ và Tên </label>
+        <input type="text" id="fullName" placeholder="vui lòng nhập tên" required>
+        <br><br>
         <label for="email">Email </label>
-        <input type="email" id="user" placeholder="vui lòng nhập email" required>
-        <label for="telephone">Số điện thoại </label>
-        <input type="tel" id="telephone" placeholder="vui lòng nhập số điện thoại" required>
+        <input type="email" id="email" placeholder="vui lòng nhập email" required>
+        <br><br>
+        <label for="phoneNumber">Số điện thoại </label>
+        <input type="tel" id="phoneNumber" placeholder="vui lòng nhập số điện thoại" required>
+        <br><br>
         <label for="country">Quê quán </label>
         <input type="text" id="country" placeholder="vui lòng nhập địa chỉ quê quán" required>
+        <br><br>
         <label for="gender">Giới tính </label>
-        <input type="radio" name="gender" id="gender" value="Nam" checked> Nam
-        <input type="radio" name="gender" id="gender" value="Nữ"> Nữ
-        <button id="save">Lưu lại </button>
-      </form>
+        <input type="radio" name="gender" id="male" value="Nam" checked> Nam
+        <input type="radio" name="gender" id="female" value="Nữ"> Nữ
+        <br><br>
+        <button id="save" onclick="save()">Lưu lại </button>
+      
     </div>
 
     <div>
       <h2>Danh sách học viên</h2>
       <label for="">Tìm kiếm tên học viên: </label>
       <input type="text" id="searchStudent">
-      <button id="search">Tìm kiếm </button>
+      <button id="search" onclick='search()'>Tìm kiếm </button>
 
       <table border="1">
         <thead>
@@ -40,7 +43,7 @@
           <th>Địa chỉ</th>
           <th>Giới tính</th>
           <th>Hành động</th>
-          <th><button>Sắp xếp </button></th>
+          <th><button onclick="arrangeAlphaB()">Sắp xếp </button></th>
         </thead>
 
         <tbody id="tableStudent">
@@ -48,6 +51,153 @@
         </tbody>
       </table>
     </div>
-  </div>
+  
+
+  <script>
+    //tạo uuid
+    function uuid() {
+      return Math.floor(Math.random()*999999)+ new Date().getMilliseconds();
+    }
+
+    //lấy dữ liệu trên mảng user trên local về
+    let students = JSON.parse(localStorage.getItem("dataStudent")) || [];
+    function save() {
+      let fullName = document.getElementById("fullName").value;
+      let email = document.getElementById("email").value;
+      let phoneNumber = document.getElementById("phoneNumber").value;
+      let country = document.getElementById("country").value;
+      let gender = document.getElementsByName("gender").value;
+      let genderValue = "";
+      for (let i = 0; i < gender.length; i++) {
+         if (gender.item(i).checked) {
+          genderValue = gender.item(i).value;
+         }
+      }
+
+      let student = {
+        id: uuid(),
+        fullName: fullName,
+        email: email,
+        phoneNumber: phoneNumber,
+        country: country,
+        gender: genderValue
+      }
+      students.push(student)
+      //sau khi push vào xong thì lưu trữ dữ liệu trên local lại
+      localStorage.setItem("dataStudent",JSON.stringify(students));
+      renderStudent();
+    }
+    function renderStudent() {
+      html = "";
+
+      for (let i = 0; i < students.length; i++) {
+        html +=
+        `
+        <tr>
+          <td>${i+1}</td>
+          <td>${students[i].fullName}</td>
+          <td>${students[i].email}</td>
+          <td>${students[i].phoneNumber}</td>
+          <td>${students[i].country}</td>
+          <td>${students[i].gender}</td>
+          <td>
+            <a onclick="editStudent(${students[i].id})" id="edit" href="#">Edit</a>
+            <a onclick="deleteStudent(${students[i].id})" id="delete" href="#">Delete</a>
+            </td>
+            <td>${students[i].id}</td>
+          </tr>
+        `
+        
+      }
+      document.getElementById("tableStudent").innerHTML = html;
+    }
+    renderStudent();
+
+    function deleteStudent(id) {
+            let  confirmDelete =confirm("bạn có muốn xoá hay không");
+            if (!confirmDelete) {
+                return
+            }
+            // tìm vị trí phần tử muốn xoá
+            let index= students.findIndex((item)=>{
+                return item.id==id
+            })
+            students.splice(index,1);
+            localStorage.setItem("dataStudent",JSON.stringify(students));
+            // sau khi xoá song gọi lại hàm render
+            renderStudent()
+        }
+
+    //edit
+    function editStudent() {
+      for (let i = 0; i < students.length; i++) {
+        if (students[i].id == id) {
+          document.getElementById("fullName").value = students[i].fullName;
+          document.getElementById("email").value = students[i].email;
+          document.getElementById("phoneNumber").value = students[i].phoneNumber;
+          document.getElementById("country").value = students[i].country;
+          document.getElementById("gender").value = students[i].gender;
+        }
+           // students[i].fullName = document.getElementById("fullName").value;
+           // localStorage.setItem()
+      }
+    }
+
+    //hàm sắp xếp theo alphab
+
+    function arrangeAlphaB(params) {
+      let temp = "";
+      for (let i = 0; i < students.length; i++) {
+        for (let j = 0; j < students.length; j++) {
+          if (students[i].fullName.localeCompare(students[j].fullName)>0) {
+            temp = students [i];
+            students[j] = students[i];
+            students[j] =temp;
+          }
+        }
+        
+      }
+      localStorage.setItem("dataStudent",JSON.stringify(students));
+      renderStudent()
+    }
+
+    //tìm kiếm
+    function search() {
+      let searchStudent = document.getElementById("searchStudent").value;
+      console.log(searchStudent);
+      let index = students.findIndex((item)=> {
+        return item.fullName.toUpperCase() == searchStudent.toUpperCase();
+      })
+
+      html = "";
+      html += 
+      `
+      <tr>
+        <td>${index}</td>
+        <td>${students[index].fullName}</td>
+        <td>${students[index].email}</td>
+        <td>${students[index].phoneNumber}</td>
+        <td>${students[index].country}</td>
+        <td>${students[index].gender}</td>
+        <td>
+          
+          </td>
+          <a onclick="editStudent(${students[index].id})" id="edit" href="#">Edit</a>
+            <a onclick="deleteStudent(${students[index].id})" id="delete" href="#">Delete</a>
+        </tr>
+      `
+
+      document.getElementById("tableStudent").innerHTML = html;
+      
+      if (student[index] == undefined) {
+        alert("tên học viên không có trong bảng")
+      } else if (searchStudent == "") {
+        console.log("a");
+      }
+    }
+  </script>
+  
+  
+  
 </body>
 </html>
